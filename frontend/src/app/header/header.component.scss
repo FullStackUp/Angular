@@ -1,0 +1,13 @@
+header {
+  padding: 5px;
+  background-color: rgb(249, 167, 158);
+  border-bottom: 2px solid salmon;
+  .header-div {
+    display: flex;
+    justify-content: space-between;
+    .header-navbar li {
+      list-style: none;
+      padding: 5px;
+    }
+  }
+}
