@@ -1,10 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { HelloComponent } from './hello.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: `<div>
+    <header>
+      <app-header></app-header>
+    </header>
+    <h2>Hello {{ name }}</h2>
+    <hello></hello>
+  </div>`,
+  styles: [
+    `
+      h2 {
+        color: red;
+      }
+    `,
+  ],
 })
 export class AppComponent {
-  title = 'myApp';
+  name: string;
+  constructor() {
+    this.name = `Angular`;
+  }
 }
