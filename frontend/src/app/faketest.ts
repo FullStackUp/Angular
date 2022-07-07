@@ -1,34 +1,23 @@
-//fichier app.ts
-import { Component, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component } from "@angular/core";
+import { Cocktail } from "./interfaces/cocktail.interface";
 
 @Component({
-  selector: 'my-app',
-  template: `
-    <div *ngFor="let item of items; let i = index; trackBy: trackById">
-      {{ i + 1 }} - {{ item.name }}
-    </div>
-  `
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  items: { name: string; id: number }[] = [
-    { name: 'Paul', id: 1 },
-    { name: 'Julie', id: 2 },
-    { name: 'Jean', id: 3 }
-  ];
+  cocktail: Cocktail = {
+    name: "mojito",
+    img:
 
-  trackById(index: number, item: { name: string; id: number }) {
-    return item.id;
-  }
+
+"https://static.750g.com/images/640-420/b520523117d647dab6b842a36f4cc7f5/mojito-le-vrai.jpg",
+    description:
+      "Le mojito, prononcé [moˈxito] en espagnol, ou mojito,
+ morito, ou mohito en français, est un cocktail traditionnel
+ de la cuisine cubaine et de la culture de Cuba, à base de
+rhum, de soda, de citron vert, et de feuilles de menthe
+fraîche"
+  };
 }
-
-@NgModule({
-  imports: [BrowserModule],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
-/*Résultat :
-1 - Paul
-2 - Julie
-3 - Jean
